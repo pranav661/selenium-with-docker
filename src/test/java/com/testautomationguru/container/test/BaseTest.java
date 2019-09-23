@@ -24,7 +24,7 @@ public class BaseTest {
 
         //String host = System.getProperty("104.196.144.175");
         //  String host = "104.196.144.175";
-        String host = "104.196.144.175";
+        String host = "35.201.133.173";
         driver = new RemoteWebDriver(new URL("http://" + host + ":4444/wd/hub"), dc);
 
     }
