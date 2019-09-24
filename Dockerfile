@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-slim
+FROM openjdk:8
 
 # Add the project jar & copy dependencies
 ADD  target/container-test.jar /usr/share/tag/container-test.jar
@@ -15,4 +15,4 @@ ADD search-module.xml /usr/share/tag/search-module.xml
 # MODULE  = order-module / search-module
 # $SELENIUM_HUB = $INTERNET_IP(Generated on GKE Selenium hub model)
 # ENTRYPOINT /usr/bin/java -cp /usr/share/tag/container-test.jar:/usr/share/tag/libs/* -DseleniumHubHost=$SELENIUM_HUB -Dbrowser=$BROWSER org.testng.TestNG /usr/share/tag/$MODULE
-ENTRYPOINT /usr/bin/java -cp /usr/share/tag/container-test.jar:/usr/share/tag/libs/* -DseleniumHubHost=34.84.151.168 -Dbrowser=chrome org.testng.TestNG /usr/share/tag/order-module
+ENTRYPOINT /usr/bin/java -cp /usr/share/tag/container-test.jar:/usr/share/tag/libs/* -DseleniumHubHost=34.84.151.168 -Dbrowser=chrome org.testng.TestNG /usr/share/tag/order-module.xml
