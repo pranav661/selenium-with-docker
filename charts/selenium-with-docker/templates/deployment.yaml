@@ -25,7 +25,7 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         volumeMounts:
         - name: test-results
-          mountPath: /test-output
+          mountPath: /workspace/source/test-output
         env:
 {{- range $pkey, $pval := .Values.env }}
         - name: {{ $pkey }}
