@@ -23,6 +23,9 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        volumeMounts:
+        - name: test-results
+          mountPath: /test-output
         env:
 {{- range $pkey, $pval := .Values.env }}
         - name: {{ $pkey }}
@@ -49,3 +52,7 @@ spec:
 {{ toYaml .Values.resources | indent 12 }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
 {{- end }}
+      volumes:
+      - name: test-results
+        hostPath:
+          path: /home/test-output    
