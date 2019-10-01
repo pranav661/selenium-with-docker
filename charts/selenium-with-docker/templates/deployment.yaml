@@ -26,6 +26,14 @@ spec:
         volumeMounts:
         - name: test-results
           mountPath: /workspace/source/test-output
+        command:
+        - /bin/sh
+        - -c
+        - |
+          echo "inside"
+          ls
+          ls /workspace
+          find test-output
         env:
 {{- range $pkey, $pval := .Values.env }}
         - name: {{ $pkey }}
